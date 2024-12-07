@@ -1,15 +1,10 @@
-// store/store.js
-import { appReducer } from '../store/reducers/appReducer.js';
+import { rootReducer } from './reducers/index.js';
 
-export class Store {
-  constructor(reducers, initialState = {}) {
+class Store {
+  constructor(reducer, initialState = {}) {
     this.state = initialState;
-    this.reducers = reducers;
+    this.reducer = reducer;
     this.listeners = [];
-
-    this.getState = this.getState.bind(this);
-    this.dispatch = this.dispatch.bind(this);
-    this.subscribe = this.subscribe.bind(this);
   }
 
   getState() {
@@ -17,8 +12,8 @@ export class Store {
   }
 
   dispatch(action) {
-    this.state = this.reducers(this.state, action);
-    this.listeners.forEach(listener => listener());
+    this.state = this.reducer(this.state, action); // rootReducer çağrılıyor
+    this.listeners.forEach((listener) => listener());
   }
 
   subscribe(listener) {
@@ -26,5 +21,4 @@ export class Store {
   }
 }
 
-// Store'u başlat
-export const store = new Store(appReducer, { counter: 0, loading: false });
+export const store = new Store(rootReducer, { auth: {}, app: {} });

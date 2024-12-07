@@ -4,7 +4,6 @@ export function aboutView() {
   const state = store.getState();
   return `
     <h1>About Page</h1>
-    <button id="go-to-home">Go to Home Page</button>
   `;
 }
 

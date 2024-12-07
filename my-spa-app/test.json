@@ -1,5 +1,22 @@
 {
-    "message": "Data successfully loaded",
-    "count": 42
+  "users": [
+    {
+      "username": "asd",
+      "password": "123",
+      "email": "asd@asd.com",
+      "accessToken": "fakeAccessToken123",
+      "refreshToken": "fakeRefreshToken123"
+    },
+    {
+      "username": "admin",
+      "password": "123",
+      "email": "admin@admin.com",
+      "accessToken": "adminAccessToken456",
+      "refreshToken": "adminRefreshToken456"
+    }
+  ],
+  "auth": {
+    "loginEndpoint": "/auth/login",
+    "refreshTokenEndpoint": "/auth/refresh-token"
   }
-  
+}
